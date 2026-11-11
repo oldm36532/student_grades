@@ -19,23 +19,23 @@ create table grades(
 id serial primary key,
 student_id integer not null references students(id),
 course_id integer not null references courses(id),
-grade integer not null check(grade>=0 and grade<=100),
+grade numeric(5,2) not null check(grade>=0 and grade<=100),
 unique(student_id,course_id)
 );
 
 insert into courses(course,teacher_name,credits)
-values ('Database','Alex_Kim',4),('Python','Vladimir_Egay',6),('Sql','Alina_Kim',5)
+values ('Database','Alex_Kim',4),('Python','Vladimir_Egay',6),('Sql','Alina_Kim',5);
 
 insert into students(name,email)
-values ('Grilla','g@mail.com'),('Peter','p@mail.com'),('Loid','l@mail.com')
+values ('Grilla','g@mail.com'),('Peter','p@mail.com'),('Loid','l@mail.com');
 
 insert into grades(student_id,course_id,grade)
-values (1,2,60),(2,2,70),(3,3,60),(3,2,40)
+values (1,2,60),(2,2,70),(3,3,60),(3,2,40);
 
 update students
 set birthday=now()
-where id=1
+where id=1;
 
-DELETE FROM grades WHERE student_id = 3
+DELETE FROM grades WHERE student_id = 3;
 
-delete from students where id=3
+delete from students where id=3;
